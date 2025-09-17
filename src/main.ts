@@ -93,28 +93,9 @@ export default class DevOpsLinkPlugin extends Plugin {
         : null;
 
       if (workItemUrl) {
-        const idIndex = matchText.indexOf(workItemId);
-
-        if (idIndex === -1) {
-          fragment.append(
-            this.createLinkElement(matchText, workItemUrl, workItemId)
-          );
-        } else {
-          const prefixText = matchText.slice(0, idIndex);
-          const suffixText = matchText.slice(idIndex + workItemId.length);
-
-          if (prefixText) {
-            fragment.append(prefixText);
-          }
-
-          fragment.append(
-            this.createLinkElement(workItemId, workItemUrl, workItemId)
-          );
-
-          if (suffixText) {
-            fragment.append(suffixText);
-          }
-        }
+        fragment.append(
+          this.createLinkElement(workItemId, workItemUrl, workItemId)
+        );
       } else {
         fragment.append(matchText);
       }
