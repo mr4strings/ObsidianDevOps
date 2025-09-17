@@ -1,0 +1,8 @@
+/*
+These styles are intentionally minimal so the links inherit the active theme.
+Feel free to customize them inside your vault if you want a different look.
+*/
+
+a.devops-work-item-link {
+  text-decoration: underline;
+}

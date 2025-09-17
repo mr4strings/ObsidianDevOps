@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-devops",
+  "name": "Obsidian DevOps Work Items",
+  "version": "0.1.0",
+  "minAppVersion": "1.3.5",
+  "description": "Convert custom Azure DevOps work item markup into links that open in your browser.",
+  "author": "OpenAI Assistant",
+  "authorUrl": "https://openai.com",
+  "isDesktopOnly": false
+}
