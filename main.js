@@ -148,9 +148,24 @@ var DevOpsLinkPlugin = class extends import_obsidian2.Plugin {
       const workItemId = ((_d = (_c = (_b = match.groups) == null ? void 0 : _b.id) != null ? _c : match[1]) != null ? _d : "").trim();
       const workItemUrl = workItemId ? this.buildWorkItemUrl(workItemId) : null;
       if (workItemUrl) {
-        fragment.append(
-          this.createLinkElement(matchText, workItemUrl, workItemId)
-        );
+        const idIndex = matchText.indexOf(workItemId);
+        if (idIndex === -1) {
+          fragment.append(
+            this.createLinkElement(matchText, workItemUrl, workItemId)
+          );
+        } else {
+          const prefixText = matchText.slice(0, idIndex);
+          const suffixText = matchText.slice(idIndex + workItemId.length);
+          if (prefixText) {
+            fragment.append(prefixText);
+          }
+          fragment.append(
+            this.createLinkElement(workItemId, workItemUrl, workItemId)
+          );
+          if (suffixText) {
+            fragment.append(suffixText);
+          }
+        }
       } else {
         fragment.append(matchText);
       }
